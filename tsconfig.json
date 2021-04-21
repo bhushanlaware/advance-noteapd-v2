@@ -11,6 +11,8 @@
       "@UI/components/*":["./client/components/*"],
       "@UI/containers/*":["./client/containers/*"],
       "@UI/themes/*":["./client/themes/*"],
+      "@services/*":["./server/services/*"],
+      "@controllers/*":["./server/controllers/*"],
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -28,7 +30,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/client/components/landingPage/LandingAdvertisement.js"  ],
+, "src/client/components/landingPage/LandingAdvertisement.js", "src/client/svgs/Logo.js", "src/pages/_app.js"  ],
   "exclude": [
     "node_modules"
   ]
