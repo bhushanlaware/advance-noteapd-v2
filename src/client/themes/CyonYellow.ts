@@ -1,4 +1,5 @@
-export default {
+import { PaletteOptions } from "@material-ui/core";
+const CyonYellow: PaletteOptions = {
   primary: {
     light: "#008394",
     main: "#00bcd4",
@@ -12,3 +13,5 @@ export default {
     contrastText: "#000",
   },
 };
+
+export default CyonYellow;

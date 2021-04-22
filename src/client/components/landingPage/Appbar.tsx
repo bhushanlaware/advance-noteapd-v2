@@ -6,8 +6,9 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import DarkIcon from "@material-ui/icons/Brightness4";
 import LightIcon from "@material-ui/icons/Brightness7";
+import useDarkMode from "@UI/hooks/useDarkMode";
 import React from "react";
-import Logo from '../../svgs/Logo';
+import Logo from "../../svgs/Logo";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -24,11 +25,14 @@ const useStyles = makeStyles((theme) => ({
     // borderRadius:'1'
   },
   icon: {
-    color: theme.palette.type === 'dark' ? theme.palette.secondary.main : theme.palette.primary.main,
+    color:
+      theme.palette.mode === "dark"
+        ? theme.palette.secondary.main
+        : theme.palette.primary.main,
   },
   AppBar: {
     background: theme.palette.background.paper,
-    boxShadow: `0 0 8px rgb(0 0 0 / 17%)`
+    boxShadow: `0 0 8px rgb(0 0 0 / 17%)`,
   },
 }));
 function HideOnScroll(props) {
@@ -41,29 +45,37 @@ function HideOnScroll(props) {
     </Slide>
   );
 }
-export default function ButtonAppBar(props) {
-  const classes = useStyles();
-  const theme = useTheme();
-  // console.log(theme)
-  const [openInfo, setOpenInfo] = React.useState(false);
+export interface AppbarProps {
+  title?: string;
+}
 
-  const handleClickOpen = () => {
-    setOpenInfo(true);
-  };
+const Appbar: React.FC<AppbarProps> = (props) => {
+  const classes = useStyles();
+  const { darkMode, setDarkMode } = useDarkMode();
   return (
     <div className={classes.root}>
       <HideOnScroll>
-      <AppBar position="fixed" className={classes.AppBar}>
+        <AppBar position="fixed" className={classes.AppBar}>
           <Toolbar>
-            <span style={{ transform: 'rotate(330deg)' }}>
+            <span style={{ transform: "rotate(330deg)" }}>
               <Logo></Logo>
             </span>
-            <Typography variant='h6' className={classes.title}>
+            <Typography variant="h6" className={classes.title}>
               {props.title}
             </Typography>
             <Tooltip title="Change Theme">
-              <IconButton color="inherit" onClick={props.changeTheme} className={classes.icon}>
-                {!props.isDark ? <DarkIcon></DarkIcon> : <LightIcon></LightIcon>}
+              <IconButton
+                color="inherit"
+                onClick={() => {
+                  setDarkMode(!darkMode);
+                }}
+                className={classes.icon}
+              >
+                {darkMode ? (
+                  <DarkIcon color="secondary"></DarkIcon>
+                ) : (
+                  <LightIcon color="primary"></LightIcon>
+                )}
               </IconButton>
             </Tooltip>
           </Toolbar>
@@ -71,4 +83,6 @@ export default function ButtonAppBar(props) {
       </HideOnScroll>
     </div>
   );
-}
+};
+
+export default Appbar;

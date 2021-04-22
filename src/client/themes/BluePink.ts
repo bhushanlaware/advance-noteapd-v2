@@ -1,4 +1,5 @@
-export default {
+import { PaletteOptions } from "@material-ui/core";
+const BluePink: PaletteOptions = {
   primary: {
     light: "#4dabf5",
     main: "#2196f3",
@@ -12,3 +13,5 @@ export default {
     contrastText: "#000",
   },
 };
+
+export default BluePink;

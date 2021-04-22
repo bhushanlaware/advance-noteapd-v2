@@ -1,4 +1,5 @@
-export default {
+import { PaletteOptions } from "@material-ui/core";
+const PurpleOrange: PaletteOptions = {
   primary: {
     light: "#757ce8",
     main: "#3f50b5",
@@ -12,3 +13,5 @@ export default {
     contrastText: "#000",
   },
 };
+
+export default PurpleOrange;

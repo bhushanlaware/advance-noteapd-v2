@@ -1,4 +1,5 @@
-export default {
+import { PaletteOptions } from "@material-ui/core";
+const GreenYellow: PaletteOptions = {
   primary: {
     light: "#56de83",
     main: "#00ab55",
@@ -11,4 +12,5 @@ export default {
     dark: "#c5a600",
     contrastText: "#000",
   },
-};
+}
+export default GreenYellow;

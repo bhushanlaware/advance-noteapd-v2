@@ -1,33 +1,13 @@
-import {
-  Box,
-  Container,
-  CssBaseline,
-  Grid,
-  Typography,
-} from "@material-ui/core";
-
+import LandingPage from "@UI/containers/LandingPage";
 import * as React from "react";
-export interface LandingPageProps {}
+export interface HomePageProps {}
 
-const LandingPage: React.FC<LandingPageProps> = () => {
+const HomePage: React.FC<HomePageProps> = () => {
   return (
     <>
-        <Container>
-          <Box p={2}>
-            <Grid container>
-              <Grid item>
-                <Typography variant="h3">Welcome to home page!</Typography>
-              </Grid>
-              <Grid item>
-                <img src="" alt="" />
-              </Grid>
-            </Grid>
-          </Box>
-        </Container>
-  
-     
+      <LandingPage></LandingPage>
     </>
   );
 };
 
-export default LandingPage;
+export default HomePage;
