@@ -1,20 +1,20 @@
+import { Box } from "@material-ui/core";
+import Appbar from "@UI/components/landingPage/Appbar";
+import LandingApps from "@UI/components/landingPage/LandingApps";
+import LandingFeatures from "@UI/components/landingPage/LandingFeatures";
+import LandingHero from "@UI/components/landingPage/LandingHero";
 import * as React from "react";
 
-import Appbar from "@UI/components/landingPage/Appbar";
-import LandingHero from "@UI/components/landingPage/LandingHero";
-import LandingFeatures from "@UI/components/landingPage/LandingFeatures";
-import { Box, Container } from "@material-ui/core";
 export interface LandingPageProps {}
 
 const LandingPage: React.FC<LandingPageProps> = () => {
   return (
     <>
-      <Appbar title='Fuse'/>
+      <Appbar title="Fuse" />
       <Box mt={10}>
-        <Container>
-          <LandingHero />
-        </Container>
-        <LandingFeatures/>
+        <LandingHero />
+        <LandingFeatures />
+        <LandingApps/>
       </Box>
     </>
   );

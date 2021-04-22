@@ -1,10 +1,16 @@
-import { Box, Button, Grid, makeStyles, Typography } from "@material-ui/core";
+import { Box, Button, Container, Grid, makeStyles, Typography } from "@material-ui/core";
 import Rocket from "@UI/illustrator/Rocket";
 import Team from "@UI/illustrator/Team";
 import * as React from "react";
 import ReactTypingEffect from "react-typing-effect";
 
 const useStyles = makeStyles((theme) => ({
+  root:{
+    display:'flex',
+    minHeight:'554px',
+    justifyContent:'center',
+    alignItems:'center',
+  },
   heading: {
     fontFamily: "Inter",
     fontWeight: 700,
@@ -24,7 +30,7 @@ export interface LandingHeroProps {}
 const LandingHero: React.FC<LandingHeroProps> = () => {
   const classes = useStyles();
   return (
-    <>
+    <Container className={classes.root}>
       <Box p="3" mb={3}>
         <Grid container spacing={0}>
           <Grid
@@ -74,7 +80,7 @@ const LandingHero: React.FC<LandingHeroProps> = () => {
           </Grid>
         </Grid>
       </Box>
-    </>
+    </Container>
   )
 };
 
