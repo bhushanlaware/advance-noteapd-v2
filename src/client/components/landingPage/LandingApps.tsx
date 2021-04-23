@@ -111,7 +111,13 @@ const AppCard: React.FC<AppCardProps> = ({ title, description, logo }) => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button fullWidth variant="outlined">
+              <Button
+                fullWidth
+                variant="outlined"
+                onClick={() => {
+                  console.log("open app");
+                }}
+              >
                 Lauch App
               </Button>
             </CardActions>
