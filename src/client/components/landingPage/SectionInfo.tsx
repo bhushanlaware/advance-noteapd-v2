@@ -3,6 +3,7 @@ import { Box, makeStyles, Typography } from "@material-ui/core";
 export interface SectionInfoProps {
   title: string;
   description: string;
+  subtitle?: string;
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -14,8 +15,16 @@ const useStyles = makeStyles((theme) => ({
     fontStyle: "Inter",
     fontWeight: "bold",
   },
+  subtitle: {
+    color: theme.palette.text.secondary,
+    fontStyle: "Inter",
+  },
 }));
-const SectionInfo: React.FC<SectionInfoProps> = ({ title, description }) => {
+const SectionInfo: React.FC<SectionInfoProps> = ({
+  title,
+  description,
+  subtitle,
+}) => {
   const classes = useStyles();
   return (
     <Box style={{ padding: 50, width: "100%", textAlign: "center" }}>
@@ -29,6 +38,14 @@ const SectionInfo: React.FC<SectionInfoProps> = ({ title, description }) => {
           {description}
         </Typography>
       </Box>
+      {subtitle && (
+        <Box>
+          <Typography className={classes.subtitle} variant="h6">
+            Improve your and team productive with beautiful, fast, intetive
+            tools form today.
+          </Typography>
+        </Box>
+      )}
     </Box>
   );
 };

@@ -8,6 +8,7 @@ import Head from "next/head";
 import BluePink from "@UI/themes/GreenYellow";
 import { DarkModeContext } from "@UI/hooks/useDarkMode";
 import * as React from "react";
+
 function MyApp({ Component, pageProps }) {
   const [darkMode, setDarkMode] = React.useState(true);
   const theme = React.useMemo(
@@ -30,16 +31,20 @@ function MyApp({ Component, pageProps }) {
   );
   return (
     <ThemeProvider theme={theme}>
-         <Head>
+      <Head>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap"
           rel="stylesheet"
         />
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+          />
       </Head>
       <DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
-          <CssBaseline />
-          <Component {...pageProps} />
+        <CssBaseline />
+        <Component {...pageProps} />
       </DarkModeContext.Provider>
     </ThemeProvider>
   );

@@ -14,7 +14,6 @@ import { alpha } from "@material-ui/core/styles";
 import * as React from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 import SectionInfo from "./SectionInfo";
-
 export interface LandingFeaturesProps {}
 
 export interface CardFeatureProps {
@@ -43,7 +42,7 @@ const CardFeature: React.FC<CardFeatureProps> = ({ title, children, icon }) => {
   const classes = useStyles();
   return (
     <Grid item md={4} sm={6} xs={12}>
-      <ScrollAnimation animateIn="fadeIn">
+      <ScrollAnimation animateIn="fadeIn" animateOnce>
         <Card elevation={0}>
           <CardContent style={{ textAlign: "center", paddingTop: 25 }}>
             <Avatar alt={title} className={classes.cardIcons}>
@@ -67,7 +66,7 @@ const CardFeature: React.FC<CardFeatureProps> = ({ title, children, icon }) => {
 const LandingFeatures: React.FC<LandingFeaturesProps> = (props) => {
   return (
     <Paper elevation={0}>
-      <SectionInfo title="GREAT FEATURES" description="The features that makes the difference."></SectionInfo>
+      {/* <SectionInfo title="GREAT FEATURES" description="The features that makes the difference."></SectionInfo> */}
       <Container>
         <Grid container justifyContent="center">
           <CardFeature title="Work Offline" icon={<WifiOff />}>
