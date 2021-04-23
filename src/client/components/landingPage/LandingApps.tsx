@@ -67,7 +67,7 @@ const useStyle = makeStyles((theme) => ({
   appCard: {
     // transition: "0.5s",
     // boxShadow: "20px 20px 50px rbga(0 0 0 0.5)",
-    transform: "translateZ(60px)",
+    // transform: "translateZ(60px)",
     borderRadius: "5px",
     background: alpha(theme.palette.background.paper, 0.5),
     // borderTop:'1px solid rbga(255,255,255,0.5)',
@@ -144,7 +144,7 @@ const apps = [
   },
   {
     title: "File Comparer",
-    description: "Compare files wihtout uploading online.",
+    description: "Compare files without uploading online.",
     logo: <FileComparerIcon />,
   },
 ];
@@ -156,8 +156,8 @@ const LandingApps: React.FC<LandingAppsProps> = (props) => {
         <Box pb="50px">
           <SectionInfo
             title="APPLICATIONS"
-            description="Be productive with your faviorite tools."
-            subtitle="Best of all in one internet productivty apps are avilable here for free, with more advance features."
+            description="Be productive with your favorite tools."
+            subtitle="Best of all in one internet productivity apps are available here for free, with more advanced features."
           ></SectionInfo>
           <Box>
             <Grid container spacing={2} justifyContent="center">

@@ -27,7 +27,7 @@ const GetStarted: React.SFC<GetStartedProps> = (props) => {
           <SectionInfo
             title="GET STARTED"
             description="Get started with the Fuse today."
-            subtitle=" Improve your and team productive with beautiful, fast, intetive tools form today."
+            subtitle=" Improve your and team productive with beautiful, fast, intuitive tools from today."
           ></SectionInfo>
           <Grid
             container
@@ -37,9 +37,9 @@ const GetStarted: React.SFC<GetStartedProps> = (props) => {
               alignItems: "center",
             }}
           >
-            <Grid item>
-              <Button variant="contained">Start using now ➜</Button>
-            </Grid>
+            <Box pb={6}>
+              <Button size='large' variant="contained">Start using now ➜</Button>
+            </Box>
           </Grid>
         </Box>
       </Container>

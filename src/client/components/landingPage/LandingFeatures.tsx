@@ -9,7 +9,7 @@ import {
   Paper,
   Typography,
 } from "@material-ui/core";
-import { Code, GroupAdd, VpnKey, WifiOff } from "@material-ui/icons";
+import { Code, GroupAdd, MonetizationOn, VpnKey, WifiOff } from "@material-ui/icons";
 import { alpha } from "@material-ui/core/styles";
 import * as React from "react";
 import ScrollAnimation from "react-animate-on-scroll";
@@ -70,24 +70,21 @@ const LandingFeatures: React.FC<LandingFeaturesProps> = (props) => {
       <Container>
         <Grid container justifyContent="center">
           <CardFeature title="Work Offline" icon={<WifiOff />}>
-            Use application without internet. All information will be stored
-            offline and will get sync whenver you get online.
+          Use application without internet. All information will be stored offline and will get sync whenever you get online.
+
           </CardFeature>
           <CardFeature title="Built for Developers" icon={<Code />}>
-            Built in tools like File Comparer, JSON viewer, image compressor to
-            make life easy of developers.
+          Built-in tools like File Comparer, JSON viewer, image compressor to make life easy for developers.
+
           </CardFeature>
-          <CardFeature title="Collborate with Team" icon={<GroupAdd />}>
-            Sycn up with team on same task with the help of shared Todo's,
-            Sticky Notes, Workflows and Notes.
+          <CardFeature title="Collaborate with Team" icon={<GroupAdd />}>
+          Sync up with the team on the same task with the help of shared Todo's, Sticky Notes, Workflows, and Notes.
           </CardFeature>
           <CardFeature title="Encrypted Everything" icon={<VpnKey />}>
-            Privacy is our priority, Everything on database will be encrypted by
-            default. Your sensetive information will be safe in our hand.
+          Privacy is our priority, Everything on the database will be encrypted by default. Your sensitive information will be safe in our hands.
           </CardFeature>
-          <CardFeature title="Free to use" icon={<VpnKey />}>
-            We provide free tier as well, no card details required. so sign up
-            and start. You can upgrade anytime to get the best experience.
+          <CardFeature title="Free to use" icon={<MonetizationOn />}>
+          We provide a free tier as well, no card details required. so sign up and start. You can upgrade anytime to get the best experience.
           </CardFeature>
         </Grid>
       </Container>

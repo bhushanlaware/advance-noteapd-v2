@@ -4,6 +4,7 @@ import LandingApps from "@UI/components/landingPage/LandingApps";
 import LandingFeatures from "@UI/components/landingPage/LandingFeatures";
 import LandingHero from "@UI/components/landingPage/LandingHero";
 import GetStated from "@UI/components/landingPage/GetStated";
+import LandingPageFooter from "@UI/components/landingPage/LandingPageFooter";
 import * as React from "react";
 export interface LandingPageProps {}
 
@@ -16,6 +17,7 @@ const LandingPage: React.FC<LandingPageProps> = () => {
         <LandingFeatures />
         <LandingApps/>
         <GetStated/>
+        <LandingPageFooter/>
       </Box>
     </>
   );

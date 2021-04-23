@@ -66,8 +66,7 @@ const LandingHero: React.FC<LandingHeroProps> = () => {
               />
             </Typography>
             <Typography variant="h6" className={classes.subtitle}>
-              Manage your work, efficiently and collborate it with colleges
-              using our best productivity tools.
+            Manage your work, efficiently and collaborate it with colleges using our best productivity tools.
             </Typography>
             <Grid container spacing={2}>
               <Grid item><Button variant='contained'>Sign up</Button></Grid>
