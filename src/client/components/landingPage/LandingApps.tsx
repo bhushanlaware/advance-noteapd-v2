@@ -153,11 +153,11 @@ const LandingApps: React.FC<LandingAppsProps> = (props) => {
   return (
     <Box className={classes.container}>
       <Container style={{ position: "relative", zIndex: 1 }}>
-        <Box pb="50px">
+        <Box pb="80px">
           <SectionInfo
             title="APPLICATIONS"
+            // subtitle="Best of all in one internet productivity apps are available here for free, with more advanced features."
             description="Be productive with your favorite tools."
-            subtitle="Best of all in one internet productivity apps are available here for free, with more advanced features."
           ></SectionInfo>
           <Box>
             <Grid container spacing={2} justifyContent="center">
