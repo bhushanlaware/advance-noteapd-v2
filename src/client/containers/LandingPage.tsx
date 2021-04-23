@@ -13,8 +13,8 @@ const LandingPage: React.FC<LandingPageProps> = () => {
       <Appbar title="Fuse" />
       <Box mt={10}>
         <LandingHero />
-        <LandingFeatures />
         <LandingApps/>
+        <LandingFeatures />
       </Box>
     </>
   );

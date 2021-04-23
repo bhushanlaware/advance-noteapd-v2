@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
           mode: "dark",
           ...BluePink,
           background: {
-            paper: darkMode ? "#222b45" : "white",
+            paper: darkMode ? "#222b45" : "#ffff",
             default: darkMode ? "#1a2138" : "#f7f9fc",
           },
           text: {
