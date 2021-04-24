@@ -1,15 +1,22 @@
-import { Box, Button, Container, Grid, makeStyles, Typography } from "@material-ui/core";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  makeStyles,
+  Typography,
+} from "@material-ui/core";
 import Rocket from "@UI/illustrator/Rocket";
-import Team from "@UI/illustrator/Team";
+import Link from "next/link";
 import * as React from "react";
 import ReactTypingEffect from "react-typing-effect";
 
 const useStyles = makeStyles((theme) => ({
-  root:{
-    display:'flex',
-    minHeight:'554px',
-    justifyContent:'center',
-    alignItems:'center',
+  root: {
+    display: "flex",
+    minHeight: "554px",
+    justifyContent: "center",
+    alignItems: "center",
   },
   heading: {
     fontFamily: "Inter",
@@ -45,7 +52,8 @@ const LandingHero: React.FC<LandingHeroProps> = () => {
             }}
           >
             <Typography variant="h2" className={classes.heading}>
-             Boost your productivity.<br/>
+              Boost your productivity.
+              <br />
             </Typography>
             <Typography variant="h3" className={classes.heading}>
               Create Collaborate
@@ -66,11 +74,18 @@ const LandingHero: React.FC<LandingHeroProps> = () => {
               />
             </Typography>
             <Typography variant="h6" className={classes.subtitle}>
-            Manage your work, efficiently and collaborate it with colleges using our best productivity tools.
+              Manage your work, efficiently and collaborate it with colleges
+              using our best productivity tools.
             </Typography>
             <Grid container spacing={2}>
-              <Grid item><Button variant='contained'>Sign up</Button></Grid>
-              <Grid item><Button variant='outlined'>Go to App</Button></Grid>
+              <Grid item>
+                <Button variant="contained">Sign up</Button>
+              </Grid>
+              <Grid item>
+                <Link href="/app">
+                  <Button variant="outlined">Go to App</Button>
+                </Link>
+              </Grid>
             </Grid>
           </Grid>
           <Grid item md={5} sm={5} xs={12}>
@@ -80,7 +95,7 @@ const LandingHero: React.FC<LandingHeroProps> = () => {
         </Grid>
       </Box>
     </Container>
-  )
+  );
 };
 
 export default LandingHero;

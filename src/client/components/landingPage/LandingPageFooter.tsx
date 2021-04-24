@@ -18,12 +18,15 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
     textAlign: "center",
   },
+  divider:{
+    background:'#0000001f',
+  }
 }));
 const Footer: React.FC<FooterProps> = (props) => {
   const classes = useStyles();
   return (
     <Paper elevation={0}>
-      <Divider />
+      <Divider className={classes.divider}/>
       <Container style={{ display: "flex", justifyContent: "center" }}>
         <Box p={3}>
           <Typography variant="subtitle1" className={classes.subtitle1}>

@@ -9,6 +9,7 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import SectionInfo from "./SectionInfo";
+import { useRouter } from "next/router";
 
 export interface GetStartedProps {}
 
@@ -18,8 +19,9 @@ const useStyle = makeStyles((theme) => ({
     fontStyle: "Inter",
   },
 }));
-const GetStarted: React.SFC<GetStartedProps> = (props) => {
+const GetStarted: React.FC<GetStartedProps> = (props) => {
   const classes = useStyle();
+  const router = useRouter();
   return (
     <Paper elevation={0}>
       <Container>
@@ -38,7 +40,15 @@ const GetStarted: React.SFC<GetStartedProps> = (props) => {
             }}
           >
             <Box pb={6}>
-              <Button size='large' variant="contained">Start using now ➜</Button>
+              <Button
+                size="large"
+                variant="contained"
+                onClick={() => {
+                  router.push("/app");
+                }}
+              >
+                Start using now ➜
+              </Button>
             </Box>
           </Grid>
         </Box>

@@ -57,9 +57,7 @@ const Appbar: React.FC<AppbarProps> = (props) => {
       <HideOnScroll>
         <AppBar position="fixed" className={classes.AppBar}>
           <Toolbar>
-            <span style={{ transform: "rotate(330deg)" }}>
-              <Logo></Logo>
-            </span>
+              <Logo/>
             <Typography variant="h6" className={classes.title}>
               {props.title}
             </Typography>

@@ -1,9 +1,11 @@
+import MainApp from "@UI/containers/MainApp";
+
 export interface AppProps {
   
 }
  
-const App: React.SFC<AppProps> = () => {
-  return ( <h1>App</h1> );
+const App: React.FC<AppProps> = () => {
+  return ( <MainApp/> );
 }
  
 export default App;

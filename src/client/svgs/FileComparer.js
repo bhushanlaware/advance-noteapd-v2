@@ -17,20 +17,20 @@ const Rocket = () => {
           <stop offset="1" stop-color={primary.dark}></stop>
         </linearGradient>
         <linearGradient x1="53.75" y1="77.04167" x2="70.84608" y2="77.04167" gradientUnits="userSpaceOnUse" id="color-3">
-          <stop offset="0" stop-color={secondary.light}></stop>
-          <stop offset="1" stop-color={secondary.light}></stop>
+          <stop offset="0" stop-color={"white"}></stop>
+          <stop offset="1" stop-color={"white"}></stop>
         </linearGradient>
         <linearGradient x1="28.66667" y1="77.04167" x2="57.33333" y2="77.04167" gradientUnits="userSpaceOnUse" id="color-4">
-          <stop offset="0" stop-color={secondary.main}></stop>
-          <stop offset="1" stop-color={secondary.light}></stop>
+          <stop offset="0" stop-color={"white"}></stop>
+          <stop offset="1" stop-color={"white"}></stop>
         </linearGradient>
         <linearGradient x1="118.25" y1="112.875" x2="101.15392" y2="112.875" gradientUnits="userSpaceOnUse" id="color-5">
-          <stop offset="0" stop-color={secondary.dark}></stop>
-          <stop offset="1" stop-color={secondary.main}></stop>
+          <stop offset="0" stop-color={"white"}></stop>
+          <stop offset="1" stop-color={"white"}></stop>
         </linearGradient>
         <linearGradient x1="143.33692" y1="112.875" x2="111.08333" y2="112.875" gradientUnits="userSpaceOnUse" id="color-6">
-          <stop offset="1" stop-color={secondary.dark}></stop>
-          <stop offset="0" stop-color={secondary.dark}></stop>
+          <stop offset="1" stop-color={"white"}></stop>
+          <stop offset="0" stop-color={"white"}></stop>
         </linearGradient>
       </defs>
       <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
@@ -54,10 +54,10 @@ const Rocket = () => {
           <path d="M60.91667,17.91667v21.5c0,3.95958 3.20708,7.16667 7.16667,7.16667h21.5z" fill="url(#color-2)"></path>
           <path
             d="M53.75,82.33783v9.19483c0,1.45483 1.75942,2.18225 2.78425,1.15025l13.43392,-13.50558c1.17175,-1.1825 1.17175,-3.08883 0,-4.26775l-13.43392,-13.50558c-1.02483,-1.03558 -2.78425,-0.30817 -2.78425,1.14667v11.7175"
-            fill={secondary.main}></path>
+            fill="white"></path>
           <path
             d="M57.33333,71.66667h-26.875c-0.989,0 -1.79167,0.80267 -1.79167,1.79167v7.16667c0,0.989 0.80267,1.79167 1.79167,1.79167h26.875"
-            fill={secondary.light}></path>
+            fill={"white"}></path>
           <path
             d="M118.25,110.1015v-11.7175c0,-1.45483 -1.75942,-2.18225 -2.78425,-1.15025l-13.43392,13.50558c-1.17175,1.17892 -1.17175,3.08525 0,4.26775l13.43392,13.50558c1.02483,1.03558 2.78425,0.30817 2.78425,-1.14667v-9.19483"
             fill="url(#color-5)"></path>

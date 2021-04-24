@@ -13,6 +13,7 @@
       "@UI/illustrator/*":["./client/svgs/*"],
       "@UI/hooks/*":["./client/hooks/*"],
       "@UI/themes/*":["./client/themes/*"],
+      "@UI/styles/*":["./client/styles/*"],
       "@services/*":["./server/services/*"],
       "@controllers/*":["./server/controllers/*"],
     },

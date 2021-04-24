@@ -19,6 +19,7 @@ import * as React from "react";
 import SectionInfo from "./SectionInfo";
 import ScrollAnimation from "react-animate-on-scroll";
 import Tilt from "react-parallax-tilt";
+import { useRouter } from "next/router";
 
 export interface LandingAppsProps {}
 export interface AppCardProps {
@@ -91,6 +92,7 @@ const useStyle = makeStyles((theme) => ({
 }));
 const AppCard: React.FC<AppCardProps> = ({ title, description, logo }) => {
   const classes = useStyle();
+  const router = useRouter();
   return (
     <Grid item xs={12} sm={6} md={2}>
       <ScrollAnimation animateIn="flipInY" duration={1} animateOnce>
@@ -115,7 +117,7 @@ const AppCard: React.FC<AppCardProps> = ({ title, description, logo }) => {
                 fullWidth
                 variant="outlined"
                 onClick={() => {
-                  console.log("open app");
+                  router.push("/app");
                 }}
               >
                 Lauch App
