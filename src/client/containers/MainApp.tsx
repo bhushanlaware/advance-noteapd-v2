@@ -1,4 +1,5 @@
-import { Box, Grid } from "@material-ui/core";
+import { Box, Divider, Grid, Typography } from "@material-ui/core";
+import { Apps } from "@material-ui/icons";
 import AppCard from "@UI/components/AppCard";
 import SideBar from "@UI/components/layouts/SideBar";
 import CodeIcon from "@UI/illustrator/Code2";
@@ -7,7 +8,14 @@ import ImageApp from "@UI/illustrator/ImageCompress";
 import NoteBookIcon from "@UI/illustrator/Notebook";
 import TodoIcon from "@UI/illustrator/Todo";
 import * as React from "react";
-import { Book as BookIcon, Code, FileText, Home as HomeIcon, Image as ImageIcon, List } from 'react-feather';
+import {
+  Book as BookIcon,
+  Code,
+  FileText,
+  Home as HomeIcon,
+  Image as ImageIcon,
+  List,
+} from "react-feather";
 
 export interface MainAppProps {}
 
@@ -17,25 +25,25 @@ const appList = [
   {
     title: "Todo",
     image: <TodoIcon />,
-    path: "/app",
+    path: "/todo",
     icon: <List />,
   },
   {
     title: "File Comparer",
     image: <FileCompareIcon />,
-    path: "/app",
+    path: "/file-comparer",
     icon: <FileText />,
   },
   {
     title: "Json Viewer",
     image: <CodeIcon />,
-    path: "/app",
+    path: "/json-viewer",
     icon: <Code />,
   },
   {
     title: "Notes",
     image: <NoteBookIcon />,
-    path: "/app",
+    path: "/notes",
     icon: <BookIcon />,
   },
   {
@@ -57,13 +65,20 @@ class MainApp extends React.Component<MainAppProps, MainAppState> {
     return (
       <Box>
         <SideBar menu={menuList as any}>
-        <Box p={3}>
+          <Box p={3} pt={0}>
+            <Box pb={1}>
+              <Typography variant={"body1"} color="textSecondary">
+                <Apps style={{ float: "left" }} color="primary" /> &nbsp; Apps
+              </Typography>
+            </Box>
+            <Divider style={{ background: "#0000001f" }} />
+            <br />
             <Grid container spacing={3}>
               {appList.map((x) => (
                 <AppCard {...x} />
               ))}
             </Grid>
-        </Box>
+          </Box>
         </SideBar>
       </Box>
     );

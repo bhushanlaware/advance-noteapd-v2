@@ -14,6 +14,7 @@ import {
   makeStyles,
   Theme,
   useTheme,
+  withStyles,
 } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -108,18 +109,34 @@ const useStyles = makeStyles((theme: Theme) =>
           ? theme.palette.secondary.main
           : theme.palette.primary.main,
     },
-    listItem: {
-      padding: 3,
-      paddingLeft: 10,
-      fontFamily: "Inter, Robota",
-      fontWeight: 600,
-      "&:selected": {
-        background: alpha(theme.palette.primary.light, 0.5),
-        borderRight: `3px solid ${theme.palette.primary.main}`,
-      },
-    },
+    // listItem: {
+    //   padding: 3,
+    //   paddingLeft: 10,
+    //   fontFamily: "Inter, Robota",
+    //   fontWeight: 600,
+    //   "&$selected": {
+    //     background: "red", // alpha(theme.palette.primary.light, 0.5),
+    //     borderRight: `3px solid ${theme.palette.primary.main}`,
+    //   },
+    //   "&:hover": {
+    //     background: "red", // alpha(theme.palette.primary.light, 0.5),
+    //     borderRight: `3px solid ${theme.palette.primary.main}`,
+    //   },
+    // },
   })
 );
+const CListItem = withStyles((theme) => ({
+  root: {
+    padding: 3,
+    paddingLeft: 10,
+    fontFamily: "Inter, Robota",
+    fontWeight: 600,
+    "&$selected": {
+      borderRight: `3px solid ${theme.palette.primary.main}`,
+    },
+  },
+  selected: {},
+}))(ListItem);
 export interface AppList {
   menu: [
     {
@@ -224,17 +241,16 @@ export default function MiniDrawer(props: AppList) {
         <Divider style={{ background: "#0000001f" }} />
         <List>
           {props.menu.map((x, i) => (
-            <ListItem
+            <CListItem
               button
               key={i}
-              className={classes.listItem}
               selected={router.pathname.includes(x.path)}
             >
               <ListItemIcon className={classes.secondaryText}>
                 {x.icon}
               </ListItemIcon>
               <ListItemText primary={x.title} />
-            </ListItem>
+            </CListItem>
           ))}
         </List>
       </Drawer>
