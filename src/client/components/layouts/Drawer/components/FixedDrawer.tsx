@@ -1,34 +1,23 @@
-import { Box, Grid } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Divider from "@material-ui/core/Divider";
 import Drawer from "@material-ui/core/Drawer";
 import IconButton from "@material-ui/core/IconButton";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
 import {
-  alpha,
   createStyles,
   makeStyles,
   Theme,
   useTheme,
-  withStyles,
 } from "@material-ui/core/styles";
-import Toolbar from "@material-ui/core/Toolbar";
-import Tooltip from "@material-ui/core/Tooltip";
 import Typography from "@material-ui/core/Typography";
-import DarkIcon from "@material-ui/icons/Brightness4";
-import LightIcon from "@material-ui/icons/Brightness7";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import MenuIcon from "@material-ui/icons/Menu";
-import useDarkMode from "@UI/hooks/useDarkMode";
 import Logo from "@UI/illustrator/Logo";
 import clsx from "clsx";
-import { useRouter } from "next/router";
 import React from "react";
+import DrawerList from "./DrawerList";
+import AppBarContent from "./AppBarContent";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -109,34 +98,9 @@ const useStyles = makeStyles((theme: Theme) =>
           ? theme.palette.secondary.main
           : theme.palette.primary.main,
     },
-    // listItem: {
-    //   padding: 3,
-    //   paddingLeft: 10,
-    //   fontFamily: "Inter, Robota",
-    //   fontWeight: 600,
-    //   "&$selected": {
-    //     background: "red", // alpha(theme.palette.primary.light, 0.5),
-    //     borderRight: `3px solid ${theme.palette.primary.main}`,
-    //   },
-    //   "&:hover": {
-    //     background: "red", // alpha(theme.palette.primary.light, 0.5),
-    //     borderRight: `3px solid ${theme.palette.primary.main}`,
-    //   },
-    // },
   })
 );
-const CListItem = withStyles((theme) => ({
-  root: {
-    padding: 3,
-    paddingLeft: 10,
-    fontFamily: "Inter, Robota",
-    fontWeight: 600,
-    "&$selected": {
-      borderRight: `3px solid ${theme.palette.primary.main}`,
-    },
-  },
-  selected: {},
-}))(ListItem);
+
 export interface AppList {
   menu: [
     {
@@ -148,11 +112,10 @@ export interface AppList {
   ];
   children: any;
 }
-export default function MiniDrawer(props: AppList) {
+export default function FixedDrawer(props: AppList) {
   const classes = useStyles();
   const theme = useTheme();
   // console.log(theme);
-  const router = useRouter();
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
@@ -163,7 +126,6 @@ export default function MiniDrawer(props: AppList) {
     setOpen(false);
   };
   const MyAppBar = () => {
-    const { darkMode, setDarkMode } = useDarkMode();
     return (
       <AppBar
         position="fixed"
@@ -171,39 +133,7 @@ export default function MiniDrawer(props: AppList) {
           [classes.appBarShift]: open,
         })}
       >
-        <Grid container display="flex">
-          <Toolbar style={{ flex: 1 }}>
-            <IconButton
-              color="primary"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              className={clsx(classes.menuButton, {
-                [classes.hide]: open,
-              })}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" noWrap className={classes.primaryText}>
-              Dashboard
-            </Typography>
-          </Toolbar>
-          <Tooltip title="Change Theme">
-            <IconButton
-              color="inherit"
-              onClick={() => {
-                setDarkMode(!darkMode);
-              }}
-              className={classes.icon}
-            >
-              {darkMode ? (
-                <DarkIcon color="secondary"></DarkIcon>
-              ) : (
-                <LightIcon color="primary"></LightIcon>
-              )}
-            </IconButton>
-          </Tooltip>
-        </Grid>
+        <AppBarContent onMenuIconClick={handleDrawerOpen} isOpen={open} />
       </AppBar>
     );
   };
@@ -239,20 +169,7 @@ export default function MiniDrawer(props: AppList) {
           </IconButton>
         </div>
         <Divider style={{ background: "#0000001f" }} />
-        <List>
-          {props.menu.map((x, i) => (
-            <CListItem
-              button
-              key={i}
-              selected={router.pathname.includes(x.path)}
-            >
-              <ListItemIcon className={classes.secondaryText}>
-                {x.icon}
-              </ListItemIcon>
-              <ListItemText primary={x.title} />
-            </CListItem>
-          ))}
-        </List>
+        <DrawerList menu={props.menu} />
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />

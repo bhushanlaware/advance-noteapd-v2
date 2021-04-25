@@ -1,21 +1,17 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": "src",
     "paths": {
-      "@UI/components/*":["./client/components/*"],
-      "@UI/containers/*":["./client/containers/*"],
-      "@UI/illustrator/*":["./client/svgs/*"],
-      "@UI/hooks/*":["./client/hooks/*"],
-      "@UI/themes/*":["./client/themes/*"],
-      "@UI/styles/*":["./client/styles/*"],
-      "@services/*":["./server/services/*"],
-      "@controllers/*":["./server/controllers/*"],
+      "@UI/components/*": ["./client/components/*"],
+      "@UI/containers/*": ["./client/containers/*"],
+      "@UI/illustrator/*": ["./client/svgs/*"],
+      "@UI/hooks/*": ["./client/hooks/*"],
+      "@UI/themes/*": ["./client/themes/*"],
+      "@UI/styles/*": ["./client/styles/*"],
+      "@services/*": ["./server/services/*"],
+      "@controllers/*": ["./server/controllers/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -29,12 +25,6 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-, "src/client/components/landingPage/LandingAdvertisement.js", "src/client/svgs/Logo.js", "src/pages/_app.js"  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/_app.js"],
+  "exclude": ["node_modules"]
 }

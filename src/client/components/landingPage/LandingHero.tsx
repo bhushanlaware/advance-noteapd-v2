@@ -38,7 +38,7 @@ const LandingHero: React.FC<LandingHeroProps> = () => {
   const classes = useStyles();
   return (
     <Container className={classes.root}>
-      <Box p="3" mb={3}>
+      <Box p={2} pt={0} mb={3}>
         <Grid container spacing={0}>
           <Grid
             item
@@ -51,7 +51,7 @@ const LandingHero: React.FC<LandingHeroProps> = () => {
               justifyContent: "center",
             }}
           >
-            <Typography variant="h2" className={classes.heading}>
+            <Typography variant="h3" className={classes.heading}>
               Boost your productivity.
               <br />
             </Typography>

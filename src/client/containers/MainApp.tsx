@@ -1,7 +1,7 @@
 import { Box, Divider, Grid, Typography } from "@material-ui/core";
 import { Apps } from "@material-ui/icons";
 import AppCard from "@UI/components/AppCard";
-import SideBar from "@UI/components/layouts/SideBar";
+import SideBar from "@UI/components/layouts/Drawer";
 import CodeIcon from "@UI/illustrator/Code2";
 import FileCompareIcon from "@UI/illustrator/FileComparer";
 import ImageApp from "@UI/illustrator/ImageCompress";
