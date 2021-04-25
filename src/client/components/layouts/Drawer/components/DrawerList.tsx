@@ -27,7 +27,12 @@ const DrawerList: React.FC<DrawerListProps> = (props) => {
   return (
     <List>
       {props.menu.map((x, i) => (
-        <CListItem button key={i} selected={router.pathname.includes(x.path)}>
+        <CListItem
+          button
+          key={i}
+          selected={router.pathname.endsWith(x.path)}
+          onClick={() => {router.push(x.path)}}
+        >
           <ListItemIcon style={{ color: theme.palette.text.secondary }}>
             {x.icon}
           </ListItemIcon>

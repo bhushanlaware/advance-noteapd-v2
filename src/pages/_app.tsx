@@ -1,17 +1,15 @@
-import {
-  createMuiTheme,
-  CssBaseline,
-  Paper,
-  ThemeProvider,
-} from "@material-ui/core";
-import Head from "next/head";
-import BluePink from "@UI/themes/GreenYellow";
+import { createMuiTheme, CssBaseline, ThemeProvider } from "@material-ui/core";
+import DynamicDrawer from "@UI/components/layouts/Drawer";
 import { DarkModeContext } from "@UI/hooks/useDarkMode";
+import { NavigationList } from "../client/routes/index";
+import BluePink from "@UI/themes/GreenYellow";
+import Head from "next/head";
+import { useRouter } from "next/router";
 import * as React from "react";
-import "@UI/styles/global.css";
+
 function MyApp({ Component, pageProps }) {
   const [darkMode, setDarkMode] = React.useState(true);
-
+  const router = useRouter();
   React.useEffect(() => {
     const LocalValue = localStorage.getItem("darkMode");
     if (!LocalValue) {
@@ -20,7 +18,7 @@ function MyApp({ Component, pageProps }) {
       setDarkMode(JSON.parse(LocalValue));
     }
   }, []);
-  
+
   React.useEffect(() => {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
   }, [darkMode]);
@@ -80,7 +78,13 @@ function MyApp({ Component, pageProps }) {
         </Head>
         <DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
           <CssBaseline />
-          <Component {...pageProps} />
+          {router.pathname.startsWith("/app") ? (
+            <DynamicDrawer menu={NavigationList}>
+              <Component {...pageProps} />
+            </DynamicDrawer>
+          ) : (
+            <Component {...pageProps} />
+          )}
         </DarkModeContext.Provider>
       </ThemeProvider>
     </>

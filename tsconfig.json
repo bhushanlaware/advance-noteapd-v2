@@ -9,6 +9,7 @@
       "@UI/illustrator/*": ["./client/svgs/*"],
       "@UI/hooks/*": ["./client/hooks/*"],
       "@UI/themes/*": ["./client/themes/*"],
+      "@UI/routes": ["./client/routes/index"],
       "@UI/styles/*": ["./client/styles/*"],
       "@services/*": ["./server/services/*"],
       "@controllers/*": ["./server/controllers/*"]
@@ -25,6 +26,6 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/_app.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
