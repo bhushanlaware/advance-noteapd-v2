@@ -6,7 +6,7 @@ import BluePink from "@UI/themes/GreenYellow";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import * as React from "react";
-
+import '@UI/styles/global.css'
 function MyApp({ Component, pageProps }) {
   const [darkMode, setDarkMode] = React.useState(true);
   const router = useRouter();
@@ -15,7 +15,9 @@ function MyApp({ Component, pageProps }) {
     if (!LocalValue) {
       localStorage.setItem("darkMode", "true");
     } else {
-      setDarkMode(JSON.parse(LocalValue));
+      setTimeout(()=>{
+        setDarkMode(JSON.parse(LocalValue));
+      },1)
     }
   }, []);
 
