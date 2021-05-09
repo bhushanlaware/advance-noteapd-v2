@@ -11,6 +11,7 @@
       "@UI/themes/*": ["./client/themes/*"],
       "@UI/routes": ["./client/routes/index"],
       "@UI/styles/*": ["./client/styles/*"],
+      "@UI/utils/*": ["./client/utils/*"],
       "@services/*": ["./server/services/*"],
       "@controllers/*": ["./server/controllers/*"]
     },

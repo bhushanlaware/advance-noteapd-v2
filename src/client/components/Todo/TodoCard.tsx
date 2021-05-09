@@ -55,7 +55,6 @@ export default function TodoCard(props) {
         ) : (
           <form
             style={{ position: "relative" }}
-            required
             autoComplete="off"
             onSubmit={() => {
               setEditTitle(false);

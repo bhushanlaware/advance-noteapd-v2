@@ -1,8 +1,9 @@
+import Board from "@UI/components/Todo/Board";
 import * as React from "react";
 export interface TodoProps {}
 
-const Todo: React.SFC<TodoProps> = () => {
-  return <h1>Todo</h1>;
+const Todo: React.FC<TodoProps> = () => {
+  return <Board></Board>;
 };
 
 export default Todo;

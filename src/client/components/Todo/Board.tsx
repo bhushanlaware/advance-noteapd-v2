@@ -1,9 +1,9 @@
 import { Add } from "@material-ui/icons";
 import { Box, Fab, Typography, Zoom } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { IndexedDB } from '../../utils/IndexDB';
+import { IndexedDB } from "@UI/utils/IndexDB";
 import React, { useEffect, useState } from "react";
-import ConfirmationDialog from "../ConfirmationDialog";
+import ConfirmationDialog from "@UI/components/dialogs/ConfirmationDialog";
 import TodoCard from "./TodoCard";
 
 const useStyle = makeStyles((theme) => ({
@@ -103,7 +103,7 @@ const Board = () => {
           </Typography>
         </Box>
       ) : (
-        <div container className={classes.container}>
+        <div className={classes.container}>
           {cards.map((x, i) => (
             <Zoom
               in={!x.delete}
@@ -113,7 +113,7 @@ const Board = () => {
                 handleRemoveCard(x);
               }}
             >
-              <div item className={classes.item} key={x.id}>
+              <div className={classes.item} key={x.id}>
                 <TodoCard
                   id={x.id}
                   removeCard={handleDelete}
