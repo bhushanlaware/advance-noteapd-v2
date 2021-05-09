@@ -19,6 +19,7 @@ export default function ConfirmationDialog({ open, setOpen, confirm, type }) {
         onClose={handleClose}
         PaperComponent={Paper}
         aria-labelledby="draggable-dialog-title"
+        style={{backdropFilter: 'blur(5px)'}}
       >
         <DialogTitle id="draggable-dialog-title">
           Do you really want to delete?

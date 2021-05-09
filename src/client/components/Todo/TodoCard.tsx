@@ -12,13 +12,17 @@ import Todo from "./Todo";
 
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  root: {
+    background:theme.palette.background.paper,
+  },
   list: {},
   closeBtn: {
     position: "absolute",
     right: "-17px",
     top: "-17px",
   },
+  cardContent:{
+  }
 }));
 
 export default function TodoCard(props) {
@@ -31,7 +35,7 @@ export default function TodoCard(props) {
   let clearCompleted = () => {};
   return (
     <Card className={classes.root}>
-      <CardContent>
+      <CardContent >
         {!editTitle ? (
           <Box style={{ position: "relative" }}>
             <Button
@@ -90,7 +94,7 @@ export default function TodoCard(props) {
           setClearCompleted={(click) => (clearCompleted = click)}
         ></Todo>
       </CardContent>
-      <CardActions style={{ float: "right" }}>
+      <CardActions style={{ float: "right" }} >
         <Button
           size="small"
           color="secondary"

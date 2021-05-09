@@ -1,8 +1,12 @@
+import { useTheme } from "@material-ui/core";
+import JsonViewer from "@UI/containers/JsonViewer";
 import * as React from "react";
 export interface JSONViwerProps {}
 
-const JSONViwer: React.FC<JSONViwerProps> = () => {
-  return <h1>JSON Viewer</h1>;
+const JSONViwerPage: React.FC<JSONViwerProps> = () => {
+  const theme=useTheme();
+
+  return <JsonViewer isDark={theme.palette.mode==='dark'}></JsonViewer>
 };
 
-export default JSONViwer;
+export default JSONViwerPage;
