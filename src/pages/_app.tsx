@@ -1,23 +1,27 @@
 import { createMuiTheme, CssBaseline, ThemeProvider } from "@material-ui/core";
 import DynamicDrawer from "@UI/components/layouts/Drawer";
+import TopBarLoader from "@UI/components/loaders/topBarLoader";
 import { DarkModeContext } from "@UI/hooks/useDarkMode";
-import { NavigationList } from "../client/routes/index";
+import "@UI/styles/global.css";
 import BluePink from "@UI/themes/GreenYellow";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import * as React from "react";
-import '@UI/styles/global.css'
+import { NavigationList } from "../client/routes/index";
+
 function MyApp({ Component, pageProps }) {
   const [darkMode, setDarkMode] = React.useState(true);
+  const [loading, setLoading] = React.useState(false);
   const router = useRouter();
   React.useEffect(() => {
     const LocalValue = localStorage.getItem("darkMode");
     if (!LocalValue) {
       localStorage.setItem("darkMode", "true");
+      setDarkMode(true);
     } else {
-      setTimeout(()=>{
+      setTimeout(() => {
         setDarkMode(JSON.parse(LocalValue));
-      },1)
+      }, 1);
     }
   }, []);
 
@@ -41,8 +45,23 @@ function MyApp({ Component, pageProps }) {
           },
         },
       }),
-    [darkMode]
+    [darkMode, BluePink]
   );
+
+  React.useEffect(() => {
+    const handleStart = (url) => url !== router.asPath && setLoading(true);
+    const handleComplete = (url) => url === router.asPath && setLoading(false);
+
+    router.events.on("routeChangeStart", handleStart);
+    router.events.on("routeChangeComplete", handleComplete);
+    router.events.on("routeChangeError", handleComplete);
+
+    return () => {
+      router.events.off("routeChangeStart", handleStart);
+      router.events.off("routeChangeComplete", handleComplete);
+      router.events.off("routeChangeError", handleComplete);
+    };
+  });
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -80,6 +99,7 @@ function MyApp({ Component, pageProps }) {
         </Head>
         <DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
           <CssBaseline />
+          {loading && <TopBarLoader />}
           {router.pathname.startsWith("/app") ? (
             <DynamicDrawer menu={NavigationList}>
               <Component {...pageProps} />
@@ -92,5 +112,4 @@ function MyApp({ Component, pageProps }) {
     </>
   );
 }
-
 export default MyApp;
