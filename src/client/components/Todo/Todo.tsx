@@ -45,8 +45,13 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: 0,
   },
 }));
+export interface ITodo {
+  id: string;
+  setClearAll: Function;
+  setClearCompleted: Function;
+}
 
-export default React.memo((props) => {
+const Todo: React.FC<ITodo> = (props) => {
   const classes = useStyles();
   const [task, setTask] = useState("");
   const [current, setCurrent] = useState([]);
@@ -175,7 +180,7 @@ export default React.memo((props) => {
                       <IconButton
                         edge="end"
                         aria-label="Edit"
-                        color="warning.main"
+                        color="secondary"
                         onClick={() => handleEdit(i)}
                       >
                         <EditOutlined />
@@ -230,4 +235,5 @@ export default React.memo((props) => {
       </Grid>
     </div>
   );
-});
+};
+export default Todo;

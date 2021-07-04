@@ -1,8 +1,8 @@
-import { makeStyles, useTheme } from "@material-ui/core";
-import * as React from "react";
-import ResponsiveDrawer from "./components/ResponsiveDrawer";
-import FixedDrawer from "./components/FixedDrawer";
+import { useTheme } from "@material-ui/core";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import * as React from "react";
+import FixedDrawer from "./components/FixedDrawer";
+import ResponsiveDrawer from "./components/ResponsiveDrawer";
 export interface DynamicDrawerProps {
   menu: any;
   children: any;
@@ -10,7 +10,7 @@ export interface DynamicDrawerProps {
 const DynamicDrawer: React.FC<DynamicDrawerProps> = (props) => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
-  console.log(isDesktop);
+  // console.log(isDesktop);
   return isDesktop ? (
     <FixedDrawer {...props} />
   ) : (

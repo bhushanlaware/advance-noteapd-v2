@@ -3,38 +3,36 @@ import {
   Button,
   ButtonGroup,
   Container,
-  Divider,
   Grid,
+  makeStyles,
   TextField,
   Typography,
 } from "@material-ui/core";
 import {
-  CallSplit,
   Edit,
   HorizontalSplit,
   Restore,
   SwapHoriz,
-  UnfoldLess,
   VerticalSplit,
 } from "@material-ui/icons";
-import React, { PureComponent, useState } from "react";
 import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab";
-
+import useDarkMode from "@UI/hooks/useDarkMode";
+import React, { useState } from "react";
 import ReactDiffViewer from "react-diff-viewer";
-import { makeStyles } from "@material-ui/core";
 
 const useStyle = makeStyles((theme) => ({
   textBox: {
     borderRadius: 0,
   },
 }));
-
-const FileComparer = (props) => {
+export interface IFileComparer {}
+const FileComparer: React.FC<IFileComparer> = (props) => {
   const classes = useStyle();
   const [firstFile, setFirstFile] = useState("");
   const [secondFile, setSecondFile] = useState("");
   const [checkDiff, setCheckDiff] = useState(false);
   const [viewType, setViewType] = useState("split");
+  const { darkMode } = useDarkMode();
   const handleCheckDiff = () => {
     if (firstFile && secondFile) setCheckDiff(true);
   };
@@ -51,7 +49,7 @@ const FileComparer = (props) => {
     setSecondFile(firstFile);
   };
   return (
-    <Container fluid>
+    <Container maxWidth="xl">
       <Box pt={2}>
         <Box pb={2}>
           <Typography variant="subtitle1" color="textSecondary">
@@ -158,7 +156,7 @@ const FileComparer = (props) => {
               oldValue={firstFile}
               newValue={secondFile}
               splitView={viewType === "split"}
-              useDarkTheme={props.isDark}
+              useDarkTheme={darkMode}
             />
           )
         ) : null}

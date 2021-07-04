@@ -1,15 +1,13 @@
-import { Box, useTheme } from "@material-ui/core";
-import FileComparer from "@UI/containers/fileComparer";
+import { Box } from "@material-ui/core";
+import FileComparer from "@UI/containers/FileComparer";
 import * as React from "react";
 export interface FileComparerProps {}
 
 const FileComparerPage: React.FC<FileComparerProps> = () => {
-  const theme=useTheme();
-
   return (
     <Box pt={0}>
-      <FileComparer isDark={theme.palette.mode==='dark'}></FileComparer>
+      <FileComparer></FileComparer>
     </Box>
   );
 };
-export default FileComparer;
+export default FileComparerPage;

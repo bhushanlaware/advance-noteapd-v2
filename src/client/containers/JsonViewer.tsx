@@ -5,6 +5,7 @@ import {
   Grid,
   TextField,
   Typography,
+  useTheme
 } from "@material-ui/core";
 import {
   Edit,
@@ -22,6 +23,7 @@ const JsonViewer = (props) => {
   const [obj, setObj] = useState(null);
   const [invalid, setInvalid] = useState(false);
   const [view, setView] = useState(false);
+  const theme = useTheme();
   const [options, setOptions] = useState({
     collapsed: false,
     displayObjectSize: false,
@@ -127,7 +129,11 @@ const JsonViewer = (props) => {
             <ReactJson
               displayDataTypes={false}
               src={obj}
-              theme={props.isDark ? "monokai" : "summerfruit:inverted"}
+              theme={
+                theme.palette.mode === "dark"
+                  ? "summerfruit"
+                  : "summerfruit:inverted"
+              }
               {...options}
             />
           ) : (

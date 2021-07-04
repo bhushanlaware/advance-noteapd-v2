@@ -1,19 +1,43 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "baseUrl": "src",
     "paths": {
-      "@UI/components/*": ["./client/components/*"],
-      "@UI/containers/*": ["./client/containers/*"],
-      "@UI/illustrator/*": ["./client/svgs/*"],
-      "@UI/hooks/*": ["./client/hooks/*"],
-      "@UI/themes/*": ["./client/themes/*"],
-      "@UI/routes": ["./client/routes/index"],
-      "@UI/styles/*": ["./client/styles/*"],
-      "@UI/utils/*": ["./client/utils/*"],
-      "@services/*": ["./server/services/*"],
-      "@controllers/*": ["./server/controllers/*"]
+      "@UI/components/*": [
+        "./client/components/*"
+      ],
+      "@UI/containers/*": [
+        "./client/containers/*"
+      ],
+      "@UI/illustrator/*": [
+        "./client/svgs/*"
+      ],
+      "@UI/hooks/*": [
+        "./client/hooks/*"
+      ],
+      "@UI/themes/*": [
+        "./client/themes/*"
+      ],
+      "@UI/routes": [
+        "./client/routes/index"
+      ],
+      "@UI/styles/*": [
+        "./client/styles/*"
+      ],
+      "@UI/utils/*": [
+        "./client/utils/*"
+      ],
+      "@services/*": [
+        "./server/services/*"
+      ],
+      "@controllers/*": [
+        "./server/controllers/*"
+      ]
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -21,12 +45,18 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "commonjs",
+    "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

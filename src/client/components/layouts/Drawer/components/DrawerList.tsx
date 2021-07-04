@@ -2,7 +2,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import { useTheme, withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import { useRouter } from "next/router";
 import * as React from "react";
 
@@ -23,7 +23,6 @@ const CListItem = withStyles((theme) => ({
 }))(ListItem);
 const DrawerList: React.FC<DrawerListProps> = (props) => {
   const router = useRouter();
-  const theme = useTheme();
   return (
     <List>
       {props.menu.map((x, i) => (
@@ -33,7 +32,7 @@ const DrawerList: React.FC<DrawerListProps> = (props) => {
           selected={router.pathname.endsWith(x.path)}
           onClick={() => {router.push(x.path)}}
         >
-          <ListItemIcon style={{ color: theme.palette.text.secondary }}>
+          <ListItemIcon color="secondary">
             {x.icon}
           </ListItemIcon>
           <ListItemText primary={x.title} />
