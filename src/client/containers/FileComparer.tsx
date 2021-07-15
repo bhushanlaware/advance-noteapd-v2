@@ -1,22 +1,24 @@
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Container,
-  Grid,
-  makeStyles,
-  TextField,
-  Typography,
-} from "@material-ui/core";
-import {
-  Edit,
-  HorizontalSplit,
-  Restore,
-  SwapHoriz,
-  VerticalSplit,
-} from "@material-ui/icons";
+import
+  {
+    Box,
+    Button,
+    ButtonGroup,
+    Container,
+    Grid,
+    makeStyles,
+    TextField,
+    Typography,
+    useTheme
+  } from "@material-ui/core";
+import
+  {
+    Edit,
+    HorizontalSplit,
+    Restore,
+    SwapHoriz,
+    VerticalSplit
+  } from "@material-ui/icons";
 import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab";
-import useDarkMode from "@UI/hooks/useDarkMode";
 import React, { useState } from "react";
 import ReactDiffViewer from "react-diff-viewer";
 
@@ -32,7 +34,7 @@ const FileComparer: React.FC<IFileComparer> = (props) => {
   const [secondFile, setSecondFile] = useState("");
   const [checkDiff, setCheckDiff] = useState(false);
   const [viewType, setViewType] = useState("split");
-  const { darkMode } = useDarkMode();
+  const theme =useTheme();
   const handleCheckDiff = () => {
     if (firstFile && secondFile) setCheckDiff(true);
   };
@@ -156,7 +158,7 @@ const FileComparer: React.FC<IFileComparer> = (props) => {
               oldValue={firstFile}
               newValue={secondFile}
               splitView={viewType === "split"}
-              useDarkTheme={darkMode}
+              useDarkTheme={theme.palette.mode==="dark"}
             />
           )
         ) : null}

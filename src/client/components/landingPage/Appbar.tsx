@@ -1,12 +1,9 @@
-import { Slide, Tooltip, useScrollTrigger } from "@material-ui/core";
+import { Slide, useScrollTrigger } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
-import IconButton from "@material-ui/core/IconButton";
 import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import DarkIcon from "@material-ui/icons/Brightness4";
-import LightIcon from "@material-ui/icons/Brightness7";
-import useDarkMode from "@UI/hooks/useDarkMode";
+import { ThemeController } from "./../../themes";
 import React from "react";
 import Logo from "../../svgs/Logo";
 const useStyles = makeStyles((theme) => ({
@@ -51,7 +48,6 @@ export interface AppbarProps {
 
 const Appbar: React.FC<AppbarProps> = (props) => {
   const classes = useStyles();
-  const { darkMode, setDarkMode } = useDarkMode();
   return (
     <div className={classes.root}>
       <HideOnScroll>
@@ -61,21 +57,7 @@ const Appbar: React.FC<AppbarProps> = (props) => {
             <Typography variant="h6" className={classes.title}>
               {props.title}
             </Typography>
-            <Tooltip title="Change Theme">
-              <IconButton
-                color="inherit"
-                onClick={() => {
-                  setDarkMode(!darkMode);
-                }}
-                className={classes.icon}
-              >
-                {darkMode ? (
-                  <DarkIcon color="secondary"></DarkIcon>
-                ) : (
-                  <LightIcon color="primary"></LightIcon>
-                )}
-              </IconButton>
-            </Tooltip>
+            <ThemeController/>
           </Toolbar>
         </AppBar>
       </HideOnScroll>

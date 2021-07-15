@@ -8,7 +8,7 @@ import LightIcon from "@material-ui/icons/Brightness7";
 import MenuIcon from "@material-ui/icons/Menu";
 import clsx from "clsx";
 import * as React from "react";
-import useDarkMode from "@UI/hooks/useDarkMode";
+import { ThemeController } from "../../../../themes";
 
 export interface AppBarContentProps {
   onMenuIconClick: () => void;
@@ -57,9 +57,7 @@ const useStyles = makeStyles((theme) =>
 );
 const AppBarContent: React.FC<AppBarContentProps> = (props) => {
   const classes = useStyles();
-  const { darkMode, setDarkMode } = useDarkMode();
 
-  useDarkMode();
   return (
     <Grid container display="flex">
       <Toolbar style={{ flex: 1 }}>
@@ -78,21 +76,7 @@ const AppBarContent: React.FC<AppBarContentProps> = (props) => {
           Dashboard
         </Typography>
       </Toolbar>
-      <Tooltip title="Change Theme">
-        <IconButton
-          color="inherit"
-          onClick={() => {
-            setDarkMode(!darkMode);
-          }}
-          className={classes.icon}
-        >
-          {darkMode ? (
-            <DarkIcon color="secondary"></DarkIcon>
-          ) : (
-            <LightIcon color="primary"></LightIcon>
-          )}
-        </IconButton>
-      </Tooltip>
+     <ThemeController/>
     </Grid>
   );
 };
