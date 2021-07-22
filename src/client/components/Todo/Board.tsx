@@ -5,6 +5,7 @@ import { IndexedDB } from "@UI/utils/IndexDB";
 import React, { useEffect, useState } from "react";
 import ConfirmationDialog from "@UI/components/dialogs/ConfirmationDialog";
 import TodoCard from "./TodoCard";
+import { UUID } from "@UI/utils/common";
 
 const useStyle = makeStyles((theme) => ({
   floatingBtn: {
@@ -35,9 +36,7 @@ const useStyle = makeStyles((theme) => ({
     paddingBottom: "15px",
   },
 }));
-const getId = () => {
-  return Date.now();
-};
+
 const Board = () => {
   const classes = useStyle();
   const [cards, setCards] = useState([]);
@@ -52,7 +51,6 @@ const Board = () => {
     const db = new IndexedDB();
     db.init();
     setIndexDB(db);
-
   }, []);
 
   useEffect(() => {
@@ -73,7 +71,7 @@ const Board = () => {
   };
   const handleRemoveCard = (card) => {
     const newCards = cards.filter((x) => x.id !== card.id);
-    indexDB.deleteRecord('TODOS', card.key).then(_ => console.log('deleted'));
+    indexDB.deleteRecord("TODOS", card.key).then((_) => console.log("deleted"));
     setCards([...newCards]);
     localStorage.removeItem("current" + card.id);
     localStorage.removeItem("completed" + card.id);
@@ -89,8 +87,13 @@ const Board = () => {
     setDeleteCard(false);
   };
   const handleAddCard = async () => {
-    const key = await indexDB.insertTableRecord('TODOS', { id: getId(), title: "Todo", todos: [], completed: [] });
-    setCards([...cards, { id: getId(), title: "Todo", key }]);
+    const key = await indexDB.insertTableRecord("TODOS", {
+      id: UUID(),
+      title: "Todo",
+      todos: [],
+      completed: [],
+    });
+    setCards([...cards, { id: UUID(), title: "Todo", key }]);
   };
 
   return (

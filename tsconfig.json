@@ -55,7 +55,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/client/utils/IndexDB.js"  ],
   "exclude": [
     "node_modules"
   ]

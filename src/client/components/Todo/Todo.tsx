@@ -65,6 +65,7 @@ const Todo: React.FC<ITodo> = (props) => {
   const clearCompleted = () => {
     setCompleted([]);
   };
+  
   useEffect(() => {
     let localCurrent = localStorage.getItem("current" + id);
     let localCompleted = localStorage.getItem("completed" + id);
