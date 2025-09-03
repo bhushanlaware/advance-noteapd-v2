@@ -17,8 +17,11 @@ import NotebookIcon from "@UI/illustrator/Notebook";
 import FileComparerIcon from "@UI/illustrator/FileComparer";
 import * as React from "react";
 import SectionInfo from "./SectionInfo";
-import ScrollAnimation from "react-animate-on-scroll";
-import Tilt from "react-parallax-tilt";
+import dynamic from "next/dynamic";
+const ScrollAnimation = dynamic<any>(() => import("react-animate-on-scroll"), {
+  ssr: false,
+});
+const Tilt = dynamic<any>(() => import("react-parallax-tilt"), { ssr: false });
 import { useRouter } from "next/router";
 
 export interface LandingAppsProps {}

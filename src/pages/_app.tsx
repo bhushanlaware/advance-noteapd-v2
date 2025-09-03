@@ -1,5 +1,8 @@
 import { createMuiTheme, CssBaseline, ThemeProvider } from "@material-ui/core";
-import DynamicDrawer from "@UI/components/layouts/Drawer";
+import dynamic from "next/dynamic";
+const DynamicDrawer = dynamic(() => import("@UI/components/layouts/Drawer"), {
+  ssr: false,
+});
 import TopBarLoader from "@UI/components/loaders/topBarLoader";
 import "@UI/styles/global.css";
 import AppThemeProvider from "./../client/themes";
@@ -34,10 +37,8 @@ function MyApp({ Component, pageProps }) {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap"
           rel="stylesheet"
         />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
-        />
+        <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" media="print" onLoad={(e)=>{(e.currentTarget as any).media='all'}} />
         <link
           rel="apple-touch-icon"
           sizes="180x180"

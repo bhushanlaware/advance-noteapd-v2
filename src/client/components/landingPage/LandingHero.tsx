@@ -9,7 +9,10 @@ import {
 import Rocket from "@UI/illustrator/Rocket";
 import Link from "next/link";
 import * as React from "react";
-import ReactTypingEffect from "react-typing-effect";
+import dynamic from "next/dynamic";
+const ReactTypingEffect = dynamic<any>(() => import("react-typing-effect"), {
+  ssr: false,
+});
 
 const useStyles = makeStyles((theme) => ({
   root: {

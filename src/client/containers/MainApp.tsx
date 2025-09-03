@@ -1,5 +1,5 @@
 import { Box, Divider, Grid, Typography } from "@material-ui/core";
-import { Apps } from "@material-ui/icons";
+import Apps from "@material-ui/icons/Apps";
 import AppCard from "@UI/components/AppCard";
 import { appList } from "../routes/index";
 import * as React from "react";

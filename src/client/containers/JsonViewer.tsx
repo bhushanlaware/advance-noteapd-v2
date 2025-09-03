@@ -7,13 +7,11 @@ import {
   Typography,
   useTheme
 } from "@material-ui/core";
-import {
-  Edit,
-  Restore,
-  UnfoldLess,
-  UnfoldMore,
-  Visibility,
-} from "@material-ui/icons";
+import Edit from "@material-ui/icons/Edit";
+import Restore from "@material-ui/icons/Restore";
+import UnfoldLess from "@material-ui/icons/UnfoldLess";
+import UnfoldMore from "@material-ui/icons/UnfoldMore";
+import Visibility from "@material-ui/icons/Visibility";
 import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab";
 import React, { useState } from "react";
 import ReactJson from "react-json-view";

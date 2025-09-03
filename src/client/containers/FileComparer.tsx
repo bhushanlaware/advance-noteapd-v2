@@ -10,14 +10,11 @@ import
     Typography,
     useTheme
   } from "@material-ui/core";
-import
-  {
-    Edit,
-    HorizontalSplit,
-    Restore,
-    SwapHoriz,
-    VerticalSplit
-  } from "@material-ui/icons";
+import Edit from "@material-ui/icons/Edit";
+import HorizontalSplit from "@material-ui/icons/HorizontalSplit";
+import Restore from "@material-ui/icons/Restore";
+import SwapHoriz from "@material-ui/icons/SwapHoriz";
+import VerticalSplit from "@material-ui/icons/VerticalSplit";
 import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab";
 import React, { useState } from "react";
 import ReactDiffViewer from "react-diff-viewer";
