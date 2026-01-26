@@ -9,10 +9,17 @@ import {
   Paper,
   Typography,
 } from "@material-ui/core";
-import { Code, GroupAdd, MonetizationOn, VpnKey, WifiOff } from "@material-ui/icons";
+import Code from "@material-ui/icons/Code";
+import GroupAdd from "@material-ui/icons/GroupAdd";
+import MonetizationOn from "@material-ui/icons/MonetizationOn";
+import VpnKey from "@material-ui/icons/VpnKey";
+import WifiOff from "@material-ui/icons/WifiOff";
 import { alpha } from "@material-ui/core/styles";
 import * as React from "react";
-import ScrollAnimation from "react-animate-on-scroll";
+import dynamic from "next/dynamic";
+const ScrollAnimation = dynamic<any>(() => import("react-animate-on-scroll"), {
+  ssr: false,
+});
 import SectionInfo from "./SectionInfo";
 export interface LandingFeaturesProps {}
 

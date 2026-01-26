@@ -1,5 +1,8 @@
 import { Box } from "@material-ui/core";
-import FileComparer from "@UI/containers/FileComparer";
+import dynamic from "next/dynamic";
+const FileComparer = dynamic(() => import("@UI/containers/FileComparer"), {
+  ssr: false,
+});
 import * as React from "react";
 export interface FileComparerProps {}
 
