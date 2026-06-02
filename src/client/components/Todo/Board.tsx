@@ -47,7 +47,6 @@ const Board = () => {
     let localCards = localStorage.getItem("cards");
     localCards = localCards ? localCards : "[]";
     setCards(JSON.parse(localCards));
-    // setCards(JSON.parse(localStorage.getItem("cards") || "") || []);
     const db = new IndexedDB();
     db.init();
     setIndexDB(db);
@@ -87,13 +86,14 @@ const Board = () => {
     setDeleteCard(false);
   };
   const handleAddCard = async () => {
+    const id = UUID();
     const key = await indexDB.insertTableRecord("TODOS", {
-      id: UUID(),
+      id,
       title: "Todo",
       todos: [],
       completed: [],
     });
-    setCards([...cards, { id: UUID(), title: "Todo", key }]);
+    setCards([...cards, { id, title: "Todo", key }]);
   };
 
   return (

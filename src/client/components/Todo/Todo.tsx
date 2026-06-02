@@ -13,7 +13,7 @@ import {
   Slide,
   TextField,
 } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import DeleteIcon from "@material-ui/icons/HighlightOffOutlined";
 import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
@@ -57,7 +57,9 @@ const Todo: React.FC<ITodo> = (props) => {
   const [current, setCurrent] = useState([]);
   const [completed, setCompleted] = useState([]);
   const { id } = props;
-  // console.log("refresded", id);
+  const clickAudio = useRef(new Audio("/sounds/click.mp3"));
+  const successAudio = useRef(new Audio("/sounds/success.mp3"));
+
   const clearAll = () => {
     setCurrent([]);
     setCompleted([]);
@@ -85,12 +87,9 @@ const Todo: React.FC<ITodo> = (props) => {
     localStorage.setItem("completed" + id, JSON.stringify([...completed]));
   }, [completed, current]);
 
-  const clickAudio = new Audio("/sounds/click.mp3");
-  const successAudio = new Audio("/sounds/success.mp3");
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    clickAudio.play();
+    clickAudio.current.play();
     setCurrent([...current, task]);
     setTask("");
   };
@@ -100,27 +99,27 @@ const Todo: React.FC<ITodo> = (props) => {
   };
 
   const handleDone = (i) => {
-    successAudio.play();
+    successAudio.current.play();
     const newCurrent = [...current];
     newCurrent.splice(i, 1);
     setCurrent(newCurrent);
     setCompleted([...completed, current[i]]);
   };
   const handleDelete = (i) => {
-    clickAudio.play();
+    clickAudio.current.play();
     const newCurrent = [...current];
     newCurrent.splice(i, 1);
     setCurrent(newCurrent);
   };
   const handleRedo = (i) => {
-    clickAudio.play();
+    clickAudio.current.play();
     const newCompleted = [...completed];
     newCompleted.splice(i, 1);
     setCompleted(newCompleted);
     setCurrent([...current, completed[i]]);
   };
   const handleDeleteCompleted = (i) => {
-    clickAudio.play();
+    clickAudio.current.play();
     const newCompleted = [...completed];
     newCompleted.splice(i, 1);
     setCompleted(newCompleted);

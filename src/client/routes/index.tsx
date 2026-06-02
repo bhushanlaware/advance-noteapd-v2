@@ -47,6 +47,5 @@ export const appList = [
 ];
 export const NavigationList = [
   { title: "Home", image: <TodoIcon />, path: "/app", icon: <HomeIcon /> },
-  ,
   ...appList,
 ];
